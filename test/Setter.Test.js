@@ -21,7 +21,14 @@ contract('name setter', (
     describe('Setter Deployement', async () => {
         it('contract has a name ', async () => {
             const name = await setter.name();
-            assert.equal(name, 'alex', 'It was not alex');
+            assert.equal(name, '', 'It was not ""');
+        });
+
+        it('can set a name', async () => {
+            let name = await setter.name();
+            setter.getName();
+            name = await  setter.name();
+            assert.equal(name, "alex", 'It was not alex ');
         });
 
         it('can set a name', async () => {

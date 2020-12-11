@@ -3,14 +3,15 @@
 pragma solidity >=0.6.0;
 
 contract Setter{
-    string public name = 'alex';
+    string public name;
 
-    /*function getUser ()
+    function getName ()
     public
     returns (string memory)
     {
+        name = "alex";
         return name;
-    }*/
+    }
 
     function setName (string memory _name)
     public
