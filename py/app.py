@@ -1,13 +1,23 @@
 import json
-from web3 import Web3
+from web3 import Web3, HTTPProvider
 
+ganacheUrl = 'HTTP://127.0.0.1:7545' 
 
-ganache_url="HTTP://127.0.0.1:7545"
-web3 = Web3(Web3.HTTPProvider(ganache_url))
+Web3 = Web3(HTTPProvider(ganacheUrl))
 
-abi = json.load([{"inputs":[],"name":"getUser","outputs":[{"internalType":"string","name":"","type":"string"}],"stateMutability":"nonpayable","type":"function"},{"inputs":[],"name":"name","outputs":[{"internalType":"string","name":"","type":"string"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"string","name":"_name","type":"string"}],"name":"setName","outputs":[{"internalType":"string","name":"","type":"string"}],"stateMutability":"nonpayable","type":"function"}])
-address = web3.toChecksumAddress("0x69F16a80E1b64cB6A75cae81E400af321479F76A")
+Web3.eth.defaultAccount = Web3.eth.accounts[0]
 
-contract = web3.eth.contract(address = address , abi = abi)
+deployedContract = '../build/contracts/Setter.json'
 
-print (contract.functions.getName().call())
+contractAddress = '0x39687ffcF30780b93eDf1dd52dca7915aE75A275'
+
+with open(deployedContract) as file:
+    contractJson = json.load(file)
+
+    contractAbi = contractJson ['abi']
+
+    contract = Web3.eth.contract(address = contractAddress, abi = contractAbi)
+
+    name = contract.functions.getName().call()
+
+    print(name)
