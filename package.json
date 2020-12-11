@@ -1,0 +1,28 @@
+{
+  "name": "pi_eth",
+  "version": "1.0.0",
+  "description": "smart contract who work with raspberry pi",
+  "main": "truffle-config.js",
+  "devDependencies": {
+    "chai": "^4.0.2",
+    "chai-as-promised": "^7.0.0",
+    "chai-bignumber": "^2.0.0",
+    "solc": "^0.5"
+  },
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nal95/Pi_eth.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nal95/Pi_eth/issues"
+  },
+  "homepage": "https://github.com/nal95/Pi_eth#readme"
+}
